@@ -1,0 +1,166 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String         @id @default(auto()) @map("_id") @db.ObjectId
+  email                String         @unique
+  username             String         @unique
+  fullname             String
+  password             String
+  biography            String?
+  birthday             DateTime?
+  avatar               String?
+  posts                Post[]
+  likes                Like[]
+  bookmarks            Bookmark[]
+  followers            Follower[]     @relation("UserFollowers")
+  followings           Follower[]     @relation("UserFollowings")
+  notifications        Notification[]
+  stories              Story[]
+  blocks               Block[]        @relation("BlockSender")
+  blockedBy            Block[]        @relation("BlockReceived")
+  comment              Comment[]
+  replies              Reply[]
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+  messages             Message[]      @relation("UserMessages")
+  receiveMessages      Message[]      @relation("ReceivedMessages")
+  conversations        Conversation[] @relation("UserMessages")
+  receiveConversations Conversation[] @relation("ReceivedMessages")
+}
+
+model Post {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  content       String
+  media         String[]
+  userId        String         @db.ObjectId
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likes         Like[]
+  bookmarks     Bookmark[]
+  notifications Notification[]
+  comments      Comment[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Like {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    String?  @db.ObjectId
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+}
+
+model Bookmark {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    String?  @db.ObjectId
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+}
+
+model Follower {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  followerId  String   @db.ObjectId
+  followingId String   @db.ObjectId
+  follower    User     @relation("UserFollowers", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("UserFollowings", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+}
+
+enum NotificationType {
+  LIKE
+  FOLLOW
+}
+
+model Notification {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  type      NotificationType
+  postId    String?          @db.ObjectId
+  post      Post?            @relation(fields: [postId], references: [id])
+  userId    String           @db.ObjectId
+  senderId  String           @db.ObjectId
+  sender    User             @relation(fields: [senderId], references: [id])
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+}
+
+model Block {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  blockerId String   @db.ObjectId
+  blocker   User     @relation("BlockSender", fields: [blockerId], references: [id])
+  blockedId String   @db.ObjectId
+  blocked   User     @relation("BlockReceived", fields: [blockedId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([blockerId, blockedId])
+}
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  senderId   String   @db.ObjectId
+  sender     User     @relation("UserMessages", fields: [senderId], references: [id])
+  receiverId String   @db.ObjectId
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  content    String
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+model Conversation {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  senderId   String   @db.ObjectId
+  sender     User     @relation("UserMessages", fields: [senderId], references: [id])
+  receiverId String   @db.ObjectId
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  content    String
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt()
+
+  @@unique([senderId, receiverId])
+}
+
+model Story {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  media     String
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    String   @db.ObjectId
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  replies   Reply[]
+  createdAt DateTime @default(now())
+}
+
+model Reply {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  commentId String   @db.ObjectId
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
