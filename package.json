@@ -1,0 +1,25 @@
+{
+  "name": "postlash",
+  "version": "1.0.0",
+  "description": "**Postlash - Social Media**",
+  "main": "index.js",
+  "scripts": {
+    "build": "concurrently \"npm run build --prefix frontend\" \"npm run build --prefix backend\"",
+    "start": "concurrently \"npm run start --prefix frontend\" \"npm run start --prefix backend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asim-iskandarli/Postlash-SocialApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/asim-iskandarli/Postlash-SocialApp/issues"
+  },
+  "homepage": "https://github.com/asim-iskandarli/Postlash-SocialApp#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
