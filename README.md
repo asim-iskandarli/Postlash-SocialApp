@@ -1,7 +1,7 @@
 **Postlash - Social Media**
 
 **Live Demo:** [Demo](https://e-commerce-app-pied-one.vercel.app) <br/> <br/>
-**Screnshot:**![image](https://github.com/asim-iskandarli/E-CommerceApp-NextJS/blob/main/screenshot.gif)
+**Screnshot:**![image](https://github.com/asim-iskandarli/Postlash-SocialApp/blob/main/screenshot.gif)
 
 **Used in this project:** <br/>
 Front-End: React Vite, Typescript, Tailwind CSS, Redux, Context API <br/>
