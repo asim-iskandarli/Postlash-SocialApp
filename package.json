@@ -4,8 +4,8 @@
   "description": "**Postlash - Social Media**",
   "main": "index.js",
   "scripts": {
-    "build": "concurrently \"npm run build --prefix frontend\" \"npm run build --prefix backend\"",
-    "start": "concurrently \"npm run start --prefix frontend\" \"npm run start --prefix backend\""
+    "build": "concurrently \"npm run build --prefix client\" \"npm run build --prefix server\"",
+    "start": "concurrently \"npm run start --prefix client\" \"npm run start --prefix server\""
   },
   "repository": {
     "type": "git",
