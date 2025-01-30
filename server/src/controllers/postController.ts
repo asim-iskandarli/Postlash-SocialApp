@@ -8,7 +8,7 @@ import { activeUsers } from "../socket";
 export const createPost = async (req: AuthRequest, res: Response) => {
   const { content } = req.body;
   const userId = req.userId;
-  if (!userId || !content) return;
+  if (!userId) return;
 
   try {
     let mediaUrls: string[] = [];
@@ -42,6 +42,7 @@ export const createPost = async (req: AuthRequest, res: Response) => {
             id: true,
             avatar: true,
             username: true,
+            fullname: true,
           },
         },
         likes: {
