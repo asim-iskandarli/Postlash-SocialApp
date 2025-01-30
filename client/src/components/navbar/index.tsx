@@ -6,6 +6,7 @@ import { GoHomeFill } from "react-icons/go";
 import { BiSolidMessageAltDots } from "react-icons/bi";
 import NotificationsMenu from "./NotificationsMenu";
 import { useAppSelector } from "../../redux/hooks";
+import NavbarMobile from "./navbar-mobile";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -37,10 +38,7 @@ const Navbar = () => {
       <div className="container w-[90%] mx-auto flex justify-between items-center ">
         <div className="flex flex-1 gap-14 items-center">
           {/* Logo */}
-          <Link
-            to={"/"}
-            className="text-sky-400 text-xl font-bold hidden sm:block"
-          >
+          <Link to={"/"} className="text-sky-400 font-bold text-lg sm:text-xl">
             POSTLAŞ
           </Link>
           <SearchBar />
@@ -84,7 +82,9 @@ const Navbar = () => {
           </svg>
         </button>
       </div>
-      {/* Mobile Menu */}
+      {/* Mobile */}
+      <NavbarMobile />
+      {/* Dropdown */}
       {isMenuOpen && (
         <div className="md:hidden  p-4 space-y-2">
           <Link
@@ -100,13 +100,6 @@ const Navbar = () => {
             className="block text-black dark:text-gray-200 hover:text-gray-400"
           >
             Mesajlar
-          </Link>
-          <Link
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            to="/notifications"
-            className="block text-black dark:text-gray-200 hover:text-gray-400"
-          >
-            Bildirişlər
           </Link>
           <Link
             onClick={() => setIsMenuOpen(!isMenuOpen)}

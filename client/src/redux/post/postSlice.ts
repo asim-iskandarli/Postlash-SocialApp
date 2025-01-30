@@ -3,10 +3,12 @@ import { PostType } from "../../types";
 
 export interface IPost {
   posts: PostType[];
+  isOpenCreate: boolean;
 }
 
 const initialState: IPost = {
   posts: [],
+  isOpenCreate: false,
 };
 
 const postSlice = createSlice({
@@ -31,9 +33,13 @@ const postSlice = createSlice({
         ...state.posts.filter((post: PostType) => post.id !== action.payload),
       ];
     },
+    setIsOpenCreate: (state: IPost, action: PayloadAction<boolean>) => {
+      state.isOpenCreate = action.payload;
+    },
   },
 });
 
-export const { getPosts, updatePost, addPost, postDelete } = postSlice.actions;
+export const { getPosts, updatePost, addPost, postDelete, setIsOpenCreate } =
+  postSlice.actions;
 
 export default postSlice.reducer;

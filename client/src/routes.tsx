@@ -8,6 +8,7 @@ import BookmarkPage from "./pages/bookmark";
 import NotificationsPage from "./pages/notifications";
 import SettingsPage from "./pages/settings";
 import StoriesPage from "./pages/stories";
+import SearchPage from "./pages/search";
 
 const routes = [
   { path: "/", element: <HomePage />, isProtected: true },
@@ -18,6 +19,7 @@ const routes = [
   { path: "/stories/:storyId", element: <StoriesPage />, isProtected: true },
   { path: "/settings", element: <SettingsPage />, isProtected: true },
   { path: "/messages", element: <MessagesPage />, isProtected: true },
+  { path: "/search", element: <SearchPage />, isProtected: true },
   { path: "/bookmarks", element: <BookmarkPage />, isProtected: true },
   { path: "/notifications", element: <NotificationsPage />, isProtected: true },
   {

@@ -141,10 +141,10 @@ const CommentButton = ({ post }: { post: PostType }) => {
                 alt="avatar"
               />
               <div>
-                <h4 className="dark:text-gray-200 font-semibold">
+                <h4 className="text-gray-800 dark:text-gray-200 font-semibold">
                   {post.user.fullname}
                 </h4>
-                <span className="dark:text-gray-300 text-md">
+                <span className="text-gray-500 dark:text-gray-300 text-md">
                   @{post.user.username}
                 </span>
               </div>
@@ -169,11 +169,13 @@ const CommentButton = ({ post }: { post: PostType }) => {
                       <div className="bg-gray-100 px-4 py-1 rounded-xl dark:bg-gray-600">
                         <Link
                           to={`/profile/${comment.user?.username}`}
-                          className="font-semibold dark:text-gray-200"
+                          className="font-semibold text-gray-700 dark:text-gray-200"
                         >
                           {comment.user?.username}
                         </Link>
-                        <p className="dark:text-gray-300">{comment.content}</p>
+                        <p className="text-gray-600 dark:text-gray-300">
+                          {comment.content}
+                        </p>
                         <span className="text-xs dark:text-gray-400">
                           {dayjs(comment.createdAt).fromNow()}
                         </span>
@@ -203,7 +205,7 @@ const CommentButton = ({ post }: { post: PostType }) => {
                       placeholder="Şərh bildir"
                       value={content}
                       onChange={(e) => setContent(e.target.value)}
-                      className="bg-gray-100 flex-1 dark:bg-gray-600 dark:text-gray-200 dark:placeholder:text-gray-300 w-full p-3 pl-2 rounded-md outline-none resize-none"
+                      className="bg-gray-100 text-gray-700 flex-1 dark:bg-gray-600 dark:text-gray-200 dark:placeholder:text-gray-300 w-full p-3 pl-2 rounded-md outline-none resize-none"
                     />
                     <button
                       disabled={createCommentMutation.isPending}

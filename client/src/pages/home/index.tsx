@@ -1,4 +1,4 @@
-import CreatePost from "../../components/post/CreatePost";
+import CreatePost from "../../components/post/CreatePostButton";
 import PostList from "../../components/post/PostList";
 import Slidebar from "../../components/home/Slidebar";
 import Discover from "../../components/home/Discover";

@@ -14,9 +14,11 @@ import routes from "./routes";
 import { setStories } from "./redux/stories/storiesSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CreatePostModal from "./components/post/CreatePostModal";
 
 function App() {
   const { user, loading } = useAppSelector((state) => state.auth);
+  const { isOpenCreate } = useAppSelector((state) => state.post);
   const { isDarkMode } = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
   const socket = useSocket();
@@ -73,6 +75,7 @@ function App() {
   return (
     <>
       {user && <Navbar />}
+      {isOpenCreate && <CreatePostModal />}
       <ToastContainer
         position="bottom-center"
         theme={isDarkMode ? "dark" : "light"}

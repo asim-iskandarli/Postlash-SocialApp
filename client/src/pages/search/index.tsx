@@ -1,18 +1,15 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
-import FollowButton from "../user/FollowButton";
 import { UserType } from "../../types";
+import FollowButton from "../../components/user/FollowButton";
 
-const SearchBar = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+const SearchPage = () => {
   const [users, setUsers] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   const navigate = useNavigate();
-  const searchRef = useRef<HTMLInputElement | null>(null);
-  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
@@ -33,43 +30,25 @@ const SearchBar = () => {
   const handleClickItem = (username: string) => {
     setSearchText("");
     setUsers([]);
-    setShowDropdown(false);
     navigate(`/profile/${username}`);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        !searchRef.current?.contains(event.target as Node) &&
-        !inputRef.current?.contains(event.target as Node)
-      ) {
-        setShowDropdown(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   return (
-    <div className="hidden md:flex lg:relative h-12 items-center p-4 bg-gray-100 dark:bg-gray-700 rounded-3xl lg:w-96 w-64">
-      <input
-        type="text"
-        value={searchText}
-        onChange={handleChangeInput}
-        placeholder="Axtarış edin..."
-        className="flex-grow p-2 focus:outline-none rounded-lg text-gray-700 dark:text-gray-300 bg-transparent"
-        onFocus={() => setShowDropdown(true)}
-        ref={inputRef}
-      />
+    <div className="w-full min-h-screen pt-20 flex flex-col items-center">
+      <div className="w-full lg:w-1/2 bg-white dark:bg-gray-800 shadow-md p-2">
+        <div className="flex items-center mx-4 bg-gray-50 dark:bg-gray-700 p-2 rounded-3xl">
+          <input
+            type="text"
+            value={searchText}
+            onChange={handleChangeInput}
+            placeholder="Axtarış edin..."
+            className="flex-grow p-2 focus:outline-none rounded-lg text-gray-700 dark:text-gray-300 bg-transparent"
+          />
 
-      <IoIosSearch className="text-gray-400 dark:text-gray-300" size={24} />
+          <IoIosSearch className="text-gray-400 dark:text-gray-300" size={24} />
+        </div>
 
-      {showDropdown && (
-        <div
-          ref={searchRef}
-          className="absolute left-1/2 -translate-x-1/2 top-14 lg:top-12 w-[95%] md:w-[75%] lg:w-full mt-2 bg-white dark:bg-gray-700 rounded-md shadow-xl"
-        >
+        <div className=" w-full mt-2 overflow-y-auto h-[70vh]">
           {searchText && users.length > 0 ? (
             <ul className="p-2">
               {users.map((user: UserType) => (
@@ -98,13 +77,15 @@ const SearchBar = () => {
             </ul>
           ) : (
             <div className="p-6">
-              <h2 className="dark:text-gray-300">Axtarış edin və kəşf edin!</h2>
+              <h2 className="dark:text-gray-300 text-center text-gray-500">
+                Axtarış edin və kəşf edin!
+              </h2>
             </div>
           )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
 
-export default SearchBar;
+export default SearchPage;
