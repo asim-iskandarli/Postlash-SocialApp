@@ -47,6 +47,11 @@ export const getStories = async (req: AuthRequest, res: Response) => {
       },
     });
 
+    if (!userStory) {
+      res.status(200).json(otherStories);
+      return;
+    }
+
     res.status(200).json([userStory, ...otherStories]);
   } catch (error) {
     res.status(500).json({

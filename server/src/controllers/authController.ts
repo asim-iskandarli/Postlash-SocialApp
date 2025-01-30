@@ -13,6 +13,7 @@ const options = {
 };
 
 const includeUserData = {
+  password: false,
   posts: {
     include: {
       user: {
