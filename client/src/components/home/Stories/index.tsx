@@ -8,7 +8,7 @@ const Stories = () => {
       <h2 className="mb-6 font-semibold text-gray-500 text-2xl dark:text-gray-300">
         Hekayələr
       </h2>
-      <div className="flex gap-2 overflow-x-auto p-2">
+      <div className="flex gap-2 p-2 overflow-x-auto max-w-[22rem] md:max-w-full">
         <CreateStory />
         <StoryList />
       </div>
