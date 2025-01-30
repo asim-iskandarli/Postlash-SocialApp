@@ -7,6 +7,7 @@ import { createCommentToPost, getComments } from "../../api";
 import { CommentType, PostType } from "../../types";
 import LoadSpinner from "../loaders/LoadSpinner";
 import dayjs from "dayjs";
+import { useAppSelector } from "../../redux/hooks";
 
 const CommentButton = ({ post }: { post: PostType }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,7 @@ const CommentButton = ({ post }: { post: PostType }) => {
   const scrollPosition = useRef(0);
   const [content, setContent] = useState("");
   const [comments, setComments] = useState<CommentType[]>([]);
+  const { user } = useAppSelector((state) => state.auth);
 
   const { data, refetch } = useQuery({
     queryKey: ["posts/getComments", post?.id, isOpen],
@@ -192,7 +194,7 @@ const CommentButton = ({ post }: { post: PostType }) => {
 
               <div className="flex gap-2 mt-8 border-t border-t-gray-200 dark:border-t-gray-600 p-2">
                 <img
-                  src={post.user.avatar || "/noAvatar.png"}
+                  src={user?.avatar || "/noAvatar.png"}
                   className="w-10 h-10 object-cover rounded-full"
                   alt="avatar"
                 />
