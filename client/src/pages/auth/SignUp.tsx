@@ -55,7 +55,7 @@ function SignupPage() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <div className="w-[35rem] mx-2 p-8 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+      <div className="w-[35rem] mx-4 p-8 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
         <h2 className="text-2xl font-bold text-center mb-6 dark:text-gray-300">
           Qeydiyyat
         </h2>

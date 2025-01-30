@@ -5,14 +5,18 @@ import SearchBar from "./Search";
 import { GoHomeFill } from "react-icons/go";
 import { BiSolidMessageAltDots } from "react-icons/bi";
 import NotificationsMenu from "./NotificationsMenu";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import NavbarMobile from "./navbar-mobile";
 import Theme from "./SelectTheme";
+import { IoExitOutline } from "react-icons/io5";
+import api from "../../api";
+import { logout } from "../../redux/auth/authSlice";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { user } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +33,12 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleLogout = async () => {
+    await api.post("/auth/logout");
+    dispatch(logout());
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav
@@ -113,20 +123,32 @@ const Navbar = () => {
             Yadda saxlanılanlar
           </Link>
           {/* User Profile */}
-          <Link
-            to={`/profile/${user?.username}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center space-x-2 mt-4"
-          >
-            <img
-              src={user?.avatar || "/noAvatar.png"}
-              alt="avatar"
-              className="w-10 h-10 rounded-full object-cover"
-            />
-            <span className="text-black dark:text-gray-200">
-              {user?.username}
-            </span>
-          </Link>
+          <div className="flex items-center justify-between mt-4">
+            <Link
+              to={`/profile/${user?.username}`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="flex items-center justify-between space-x-2"
+            >
+              <div className="flex items-center gap-2">
+                <img
+                  src={user?.avatar || "/noAvatar.png"}
+                  alt="avatar"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <span className="text-black dark:text-gray-200">
+                  {user?.username}
+                </span>
+              </div>
+            </Link>
+            <button
+              className="bg-gray-100 dark:bg-gray-700 py-2 px-3 rounded-md"
+              onClick={handleLogout}
+            >
+              <div className="flex  items-center gap-2  dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+                <IoExitOutline size={18} />
+              </div>
+            </button>
+          </div>
         </div>
       )}
     </nav>
