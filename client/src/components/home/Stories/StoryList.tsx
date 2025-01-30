@@ -9,10 +9,7 @@ const StoryList = () => {
     <div className="flex gap-2">
       {stories.length > 0 &&
         stories.map((story: StoryType) => (
-          <>
-            <Story story={story} key={story.id} />
-            <Story story={story} key={story.id} />
-          </>
+          <Story story={story} key={story.id} />
         ))}
     </div>
   );
