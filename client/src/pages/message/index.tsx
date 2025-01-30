@@ -8,7 +8,7 @@ const MessagePage = () => {
   const { id } = useParams();
 
   return (
-    <div className="flex w-full lg:w-2/3 mx-auto min-h-screen pt-20">
+    <div className="flex w-full lg:w-2/3 mx-auto min-h-screen pt-14 md:pt-20">
       <Helmet>
         <title>{import.meta.env.VITE_APP_NAME} | Söhbətlər</title>
       </Helmet>

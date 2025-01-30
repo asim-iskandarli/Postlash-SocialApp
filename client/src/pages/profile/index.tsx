@@ -58,7 +58,7 @@ const ProfilePage = () => {
   }, [dispatch, users, username, user]);
 
   return (
-    <div className="flex flex-col pt-20 md:w-5/6 w-full lg:w-4/6 m-auto min-h-screen">
+    <div className="flex flex-col pt-14 md:pt-20 md:w-5/6 w-full lg:w-4/6 m-auto min-h-screen">
       <Helmet>
         <title>
           {import.meta.env.VITE_APP_NAME} | {userProfile.username || "Profil"}

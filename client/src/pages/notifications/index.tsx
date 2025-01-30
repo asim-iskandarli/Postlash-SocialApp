@@ -56,11 +56,11 @@ const NotificationsPage = () => {
     dispatch(setNotifications([]));
   };
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex pt-14 md:pt-20 justify-center">
       <Helmet>
         <title>{import.meta.env.VITE_APP_NAME} | Bildirişlər</title>
       </Helmet>
-      <div className="right-0 mt-2 w-[40rem] mx-2 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg dark:shadow-gray-800">
+      <div className="right-0 w-full max-h-[50rem] mx-2 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg dark:shadow-gray-800">
         <div className="flex flex-col">
           {notifications.length > 0 ? (
             <div className="p-2">

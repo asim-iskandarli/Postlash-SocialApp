@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 const HomePage = () => {
   return (
-    <div className="flex min-h-screen gap-4 w-[90%] mx-auto pt-20">
+    <div className="flex min-h-screen gap-4 w-[90%] mx-auto pt-14 md:pt-20">
       <Helmet>
         <title>{import.meta.env.VITE_APP_NAME} | Ana səhifə</title>
       </Helmet>
