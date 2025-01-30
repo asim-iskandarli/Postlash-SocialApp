@@ -11,6 +11,7 @@ import storyRoutes from "./routes/storyRoutes";
 import messageRoutes from "./routes/messageRoutes";
 import { createServer } from "http";
 import { createSocket } from "./socket";
+import path from "path";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
