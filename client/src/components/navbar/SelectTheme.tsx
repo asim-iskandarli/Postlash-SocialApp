@@ -15,11 +15,11 @@ const Theme = () => {
     <div className="p-1" onClick={toggleDarkMode}>
       {isDarkMode ? (
         <p className="flex items-center gap-2 text-gray-200 cursor-pointer">
-          <GoSun size={18} />{" "}
+          <GoSun size={18} />
           <span className="md:block hidden">İşıq rejimi</span>
         </p>
       ) : (
-        <p className="flex items-center gap-2 cursor-pointer">
+        <p className="flex items-center gap-2 text-gray-700 cursor-pointer">
           <IoMoonOutline size={18} />
           <span className="md:block hidden">Qaranlıq rejim</span>
         </p>
