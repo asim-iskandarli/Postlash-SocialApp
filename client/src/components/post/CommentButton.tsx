@@ -176,7 +176,7 @@ const CommentButton = ({ post }: { post: PostType }) => {
                         <p className="text-gray-600 dark:text-gray-300">
                           {comment.content}
                         </p>
-                        <span className="text-xs dark:text-gray-400">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
                           {dayjs(comment.createdAt).fromNow()}
                         </span>
                       </div>
