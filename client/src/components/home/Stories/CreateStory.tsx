@@ -79,7 +79,7 @@ function CreateStoryModal() {
   };
 
   return (
-    <div className="flex-1">
+    <div>
       <label
         htmlFor="upload-story"
         className="rounded-full text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 duration-300 cursor-pointer border-2 border-dashed border-gray-300 bg-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 dark:bg-gray-700 dark:border-gray-500 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center"
