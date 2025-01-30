@@ -159,9 +159,9 @@ const CommentButton = ({ post }: { post: PostType }) => {
                 {comments.length > 0 ? (
                   comments.map((comment: any) => (
                     <div key={comment.id} className="flex gap-2 mt-2">
-                      <Link to={`/profile/${post.user?.username}`}>
+                      <Link to={`/profile/${comment.user?.username}`}>
                         <img
-                          src={post.user?.avatar || "/noAvatar.png"}
+                          src={comment.user?.avatar || "/noAvatar.png"}
                           className="w-10 h-10 object-cover rounded-full"
                           alt="avatar"
                         />
