@@ -13,7 +13,6 @@ const options = {
 };
 
 const includeUserData = {
-  password: false,
   posts: {
     include: {
       user: {
@@ -162,7 +161,7 @@ export const refreshUser = async (req: AuthRequest, res: Response) => {
       return;
     }
 
-    res.status(200).json({ user });
+    res.status(200).json({ ...user, password: undefined });
   } catch (error) {
     res.status(500).json({
       message:
