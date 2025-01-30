@@ -194,7 +194,7 @@ function UpdateProfile() {
                   value={userData.biography || ""}
                   onChange={handleChangeInput}
                   placeholder="Bioqrafiya"
-                  className="w-full mt-1 h-10 p-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500"
+                  className="w-full mt-1 h-10 p-3 text-gray-700 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500"
                 />
               </div>
               <div>
@@ -208,7 +208,7 @@ function UpdateProfile() {
                     userData.birthday ? userData.birthday.split("T")[0] : ""
                   }
                   onChange={handleChangeInput}
-                  className="w-full mt-1 h-10 p-3  bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500 dark:gray-400"
+                  className="w-full mt-1 h-10 p-3 text-gray-700 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500 dark:gray-400"
                 />
               </div>
 
