@@ -48,7 +48,7 @@ const ProfileInfo = ({ userProfile }: { userProfile: UserType }) => {
             )}
           </div>
           {userProfile.biography && (
-            <p className="mt-5 dark:text-gray-200 text-xs lg:text-base">
+            <p className="mt-5 text-gray-600 dark:text-gray-200 text-xs lg:text-base">
               {userProfile.biography}
             </p>
           )}

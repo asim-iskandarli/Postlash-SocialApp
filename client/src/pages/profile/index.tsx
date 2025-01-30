@@ -74,7 +74,7 @@ const ProfilePage = () => {
         )}
       </div>
       {/* BOTTOM */}
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center my-2 md:my-10">
         <div className="lg:w-4/6 md:w-5/6 w-full md:mx-0 mx-5 flex flex-col gap-4">
           {getUserMutation.isPending ? (
             <PostSkeleton />
