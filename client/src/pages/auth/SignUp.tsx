@@ -165,7 +165,7 @@ function SignupPage() {
             </h2>
           )}
         </form>
-        <p className="mt-4 text-center dark:text-gray-200">
+        <p className="mt-4 text-center text-gray-700 dark:text-gray-200">
           Hesabınız var?{" "}
           <Link
             to={"/signin"}

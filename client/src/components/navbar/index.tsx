@@ -144,7 +144,7 @@ const Navbar = () => {
               className="bg-gray-100 dark:bg-gray-700 py-2 px-3 rounded-md"
               onClick={handleLogout}
             >
-              <div className="flex  items-center gap-2  dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+              <div className="flex text-gray-600 items-center gap-2  dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
                 <IoExitOutline size={18} />
               </div>
             </button>
