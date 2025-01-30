@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/app.js",
+    "build": "tsc",
     "dev": "npx nodemon --exec ts-node src/app.ts"
   },
   "keywords": [],
