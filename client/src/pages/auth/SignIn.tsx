@@ -71,7 +71,7 @@ function SigninPage() {
               value={userData.email}
               onChange={handleChangeInput}
               required
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-200"
+              className="w-full px-4 h-10 mt-2 placeholder:text-gray-500 text-gray-500 bg-gray-100 outline-none rounded-md dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-100"
               placeholder="E-poçtunuzu daxil edin"
               autoComplete="email"
             />
@@ -90,14 +90,14 @@ function SigninPage() {
               value={userData.password}
               onChange={handleChangeInput}
               required
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-200"
+              className="w-full px-4 h-10 mt-2 placeholder:text-gray-500 text-gray-500 bg-gray-100 outline-none rounded-md dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-100"
               placeholder="Şifrənizi daxil edin"
               autoComplete="current-password"
             />
           </div>
           <button
             type="submit"
-            className="flex justify-center items-center w-full h-10 py-2 bg-sky-400 text-white rounded-md hover:bg-sky-500"
+            className="flex justify-center items-center w-full h-10 bg-sky-400 text-white rounded-md hover:bg-sky-500"
           >
             {mutation.isPending ? <LoadSpinner /> : "Daxil ol"}
           </button>

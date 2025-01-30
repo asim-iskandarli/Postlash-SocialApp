@@ -75,7 +75,7 @@ function SignupPage() {
                 value={userData.email}
                 onChange={handleChangeInput}
                 required
-                className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-200"
+                className="w-full px-4 h-10 mt-2 placeholder:text-gray-500 text-gray-500 bg-gray-100 outline-none rounded-md dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-100"
                 placeholder="E-poçtunuzu daxil edin"
               />
             </div>
@@ -93,7 +93,7 @@ function SignupPage() {
                 value={userData.fullname}
                 onChange={handleChangeInput}
                 required
-                className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-200"
+                className="w-full px-4 h-10 mt-2 placeholder:text-gray-500 text-gray-500 bg-gray-100 outline-none rounded-md dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-100"
                 placeholder="Adınızı daxil edin"
               />
             </div>
@@ -111,7 +111,7 @@ function SignupPage() {
                 value={userData.username}
                 onChange={handleChangeInput}
                 required
-                className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-200"
+                className="w-full px-4 h-10 mt-2 placeholder:text-gray-500 text-gray-500 bg-gray-100 outline-none rounded-md dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-100"
                 placeholder="İstifadəçi adınızı daxil edin"
               />
             </div>
@@ -129,7 +129,7 @@ function SignupPage() {
                 value={userData.password}
                 onChange={handleChangeInput}
                 required
-                className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-200"
+                className="w-full px-4 h-10 mt-2 placeholder:text-gray-500 text-gray-500 bg-gray-100 outline-none rounded-md dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-100"
                 placeholder="Şifrənizi daxil edin"
               />
             </div>
@@ -147,14 +147,14 @@ function SignupPage() {
                 name="confirmPassword"
                 onChange={handleChangeInput}
                 required
-                className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-200"
+                className="w-full px-4 h-10 mt-2 placeholder:text-gray-500 text-gray-500 bg-gray-100 outline-none rounded-md dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-100"
                 placeholder="Şifrənizi təkrarlayın"
               />
             </div>
           </div>
           <button
             type="submit"
-            className="flex justify-center items-center w-full h-10 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+            className="flex justify-center items-center w-full h-10 bg-green-500 text-white rounded-md hover:bg-green-600"
             disabled={mutation.isPending}
           >
             {mutation.isPending ? <LoadSpinner /> : "Qeydiyyatdan keçin"}
