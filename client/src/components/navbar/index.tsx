@@ -6,7 +6,7 @@ import { GoHomeFill } from "react-icons/go";
 import { BiSolidMessageAltDots } from "react-icons/bi";
 import NotificationsMenu from "./NotificationsMenu";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import NavbarMobile from "./navbar-mobile";
+import Tabbar from "./Tabbar";
 import Theme from "./SelectTheme";
 import { IoExitOutline } from "react-icons/io5";
 import api from "../../api";
@@ -97,7 +97,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Mobile */}
-      <NavbarMobile />
+      <Tabbar />
       {/* Dropdown */}
       {isMenuOpen && (
         <div className="md:hidden  p-4 space-y-2">
