@@ -148,6 +148,9 @@ export const followUser = async (req: AuthRequest, res: Response) => {
           senderId: currentId,
           userId,
         },
+        include: {
+          sender: true,
+        },
       });
 
       const socketReceiverUser = activeUsers.get(userId);
