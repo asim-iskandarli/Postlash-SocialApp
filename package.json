@@ -4,9 +4,10 @@
   "description": "**Postlash - Social Media**",
   "main": "index.js",
   "scripts": {
-    "prebuild": "npm install --prefix client && npm install --prefix server",
+    "install-all": "npm install && npm install --prefix client && npm install --prefix server",
+    "prebuild": "npm run install-all",
     "build": "concurrently \"npm run build --prefix client\" \"npm run build --prefix server\"",
-    "start": "concurrently \"npm run start --prefix client\" \"npm run start --prefix server\""
+    "start": "concurrently \"npm run dev --prefix client\" \"npm run start --prefix server\""
   },
   "repository": {
     "type": "git",
