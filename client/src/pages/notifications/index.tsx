@@ -79,7 +79,7 @@ const NotificationsPage = () => {
                       alt="avatar"
                     />
                     <div className="flex-1 flex items-center  flex-wrap">
-                      <h4 className="font-semibold text-gray-700 dark:text-gray-200">
+                      <h4 className="font-semibold text-gray-700 dark:text-gray-200 mr-2">
                         {n.sender.username}
                       </h4>
                       <p className="text-sm text-gray-500 dark:text-gray-200">
