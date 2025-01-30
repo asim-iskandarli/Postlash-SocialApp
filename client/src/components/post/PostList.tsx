@@ -31,7 +31,7 @@ const PostList: React.FC = () => {
   }
 
   return (
-    <section className="container mx-auto my-2 w-full">
+    <section className="container mx-auto my-2 mb-14 md:mb-0 w-full">
       {posts.length > 0 ? (
         posts.map((post: PostType) => <Post key={post.id} post={post} />)
       ) : (
