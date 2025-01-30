@@ -182,9 +182,9 @@ export const likePost = async (req: AuthRequest, res: Response) => {
           },
         });
 
-        const socketUser = activeUsers.get(post?.userId);
-        if (socketUser) {
-          socketUser.sockets.forEach((socketId) => {
+        const socketReceiverUser = activeUsers.get(post?.userId);
+        if (socketReceiverUser) {
+          socketReceiverUser.sockets.forEach((socketId) => {
             io.to(socketId).emit("notification", { ...newNotification, post });
           });
         }

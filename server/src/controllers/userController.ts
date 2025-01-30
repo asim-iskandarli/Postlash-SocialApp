@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import prisma from "../config/client";
 import { AuthRequest, UserUpdateData } from "../types";
 import { uploadToCloudinary } from "../config/cloudinary";
+import { activeUsers } from "../socket";
+import { io } from "../app";
 
 export const getUser = async (req: Request, res: Response) => {
   const { username } = req.params;
@@ -140,13 +142,20 @@ export const followUser = async (req: AuthRequest, res: Response) => {
           followingId: currentId,
         },
       });
-      await prisma.notification.create({
+      const newNotification = await prisma.notification.create({
         data: {
           type: "FOLLOW",
           senderId: currentId,
           userId,
         },
       });
+
+      const socketReceiverUser = activeUsers.get(userId);
+      if (socketReceiverUser) {
+        socketReceiverUser.sockets.forEach((socketId) => {
+          io.to(socketId).emit("notification", newNotification);
+        });
+      }
       res.status(200).json({ message: "İstifadəçi izlənildi." });
     }
   } catch (error) {
