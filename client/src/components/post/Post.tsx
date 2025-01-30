@@ -32,7 +32,7 @@ const Post = ({ post }: { post: PostType }) => {
       key={post.id}
       className="bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-3 hover:shadow-lg duration-300"
     >
-      <div className="">
+      <div>
         {/* HEADER */}
         <div className="flex p-3 justify-between items-center">
           <div className="flex gap-3">
@@ -46,7 +46,7 @@ const Post = ({ post }: { post: PostType }) => {
               to={`/profile/${post.user.username}`}
               className="cursor-pointer"
             >
-              <h3 className="text-xl font-semibold dark:text-gray-200">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
                 {post.user.fullname}
               </h3>
               <p className="text-xs text-gray-400">@{post.user.username}</p>

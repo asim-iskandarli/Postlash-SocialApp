@@ -25,7 +25,7 @@ const ProfileInfo = ({ userProfile }: { userProfile: UserType }) => {
         <div className="mb-5">
           <div className="flex justify-between">
             <div>
-              <h1 className="text-md lg:text-2xl font-semibold dark:text-gray-200">
+              <h1 className="text-md lg:text-2xl text-gray-800 font-semibold dark:text-gray-200">
                 {userProfile?.fullname}
               </h1>
               <p className="font-semibold text-xs lg:text-md text-gray-400 dark:text-gray-300">

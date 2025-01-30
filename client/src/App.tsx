@@ -35,7 +35,7 @@ function App() {
   // Get session and active users
   useEffect(() => {
     if (isSuccess && data) {
-      dispatch(setUser(data.user));
+      dispatch(setUser(data));
       if (socket) {
         socket.emit("get_active_users");
         socket.on("online_users", (users) => {
