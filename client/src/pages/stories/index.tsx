@@ -45,7 +45,7 @@ const StoriesPage = () => {
     <div className="fixed w-full min-h-screen z-30 bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
       <div className="w-full sm:w-3/4 md:w-2/4 bg-white dark:bg-gray-800 shadow-md justify-between rounded-md relative">
         <div className="flex items-center justify-between px-4 py-2 mt-1">
-          <div className="flex items-center gap-2 bg-gradient-to-r from-transparent via-[rgba(0,0,0,0.5)] to-transparent py-1 px-2 md:px-8 rounded-lg">
+          <div className="flex items-center gap-3">
             <Link to={`/profile/${story.user.username}`}>
               <img
                 src={story.user.avatar || "/noAvatar.png"}
@@ -54,10 +54,10 @@ const StoriesPage = () => {
               />
             </Link>
             <Link to={`/profile/${story.user.username}`}>
-              <h4 className="text-white font-semibold">
+              <h4 className="text-gray-600 dark:text-gray-200 font-semibold">
                 {story.user.fullname}
               </h4>
-              <p className="text-white">@{story.user.username}</p>
+              <p className="text-gray-400">@{story.user.username}</p>
             </Link>
           </div>
           <button
