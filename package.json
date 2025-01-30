@@ -4,7 +4,7 @@
   "description": "**Postlash - Social Media**",
   "main": "index.js",
   "scripts": {
-    "install-all": "npm install && npm install --prefix client && npm install --prefix server",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
     "prebuild": "npm run install-all",
     "build": "concurrently \"npm run build --prefix client\" \"npm run build --prefix server\"",
     "start": "concurrently \"npm run dev --prefix client\" \"npm run start --prefix server\""
