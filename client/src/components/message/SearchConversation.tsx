@@ -28,7 +28,7 @@ const SearchConversation = ({ searchKeyword }: { searchKeyword: string }) => {
 
   return (
     <div>
-      {result.length > 0 ? (
+      {result.length > 0 &&
         result.map((r: MessageType) => (
           <Link
             key={r.id}
@@ -62,10 +62,7 @@ const SearchConversation = ({ searchKeyword }: { searchKeyword: string }) => {
               </div>
             </div>
           </Link>
-        ))
-      ) : (
-        <p>Hecbir sohbet tapilmadi</p>
-      )}
+        ))}
     </div>
   );
 };
