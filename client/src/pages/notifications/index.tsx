@@ -70,7 +70,7 @@ const NotificationsPage = () => {
                   key={n.id}
                 >
                   <div
-                    className="flex gap-2 flex-1"
+                    className="flex items-center gap-2 flex-1"
                     onClick={() => handleClick(n)}
                   >
                     <img
@@ -78,7 +78,7 @@ const NotificationsPage = () => {
                       src={n.sender.avatar || "/noAvatar.png"}
                       alt="avatar"
                     />
-                    <div className="flex-1 flex items-center  flex-wrap gap-2">
+                    <div className="flex-1 flex items-center  flex-wrap">
                       <h4 className="font-semibold text-gray-700 dark:text-gray-200">
                         {n.sender.username}
                       </h4>
