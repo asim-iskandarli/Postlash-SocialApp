@@ -70,7 +70,7 @@ const ProfileMenu = () => {
               </Link>
             </li>
             <li className="" onClick={() => setIsOpen(false)}>
-              <div className="block dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+              <div className="block pl-4 py-3 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
                 <Theme />
               </div>
             </li>

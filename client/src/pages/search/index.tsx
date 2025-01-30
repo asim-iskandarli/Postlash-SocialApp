@@ -48,7 +48,7 @@ const SearchPage = () => {
           <IoIosSearch className="text-gray-400 dark:text-gray-300" size={24} />
         </div>
 
-        <div className=" w-full mt-2 overflow-y-auto h-[70vh]">
+        <div className=" w-full mt-2 overflow-y-auto h-[65vh]">
           {searchText && users.length > 0 ? (
             <ul className="p-2">
               {users.map((user: UserType) => (

@@ -38,7 +38,7 @@ const NavbarMobile = () => {
 
   return (
     <div className="fixed md:hidden w-full bg-white dark:bg-gray-800 shadow-md border-t border-t-gray-100 dark:border-t-gray-700 bottom-0 left-0 h-12">
-      <div className="w-full h-full flex items-center justify-between px-4">
+      <div className="w-full h-full flex items-center justify-between px-8">
         {navItems.map((item) => {
           if (item.to) {
             return (

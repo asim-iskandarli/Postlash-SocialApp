@@ -127,10 +127,10 @@ const FollowList = ({
                         alt="avatar"
                       />
                       <div>
-                        <h4 className="dark:text-gray-200 font-semibold">
+                        <h4 className="text-gray-700 dark:text-gray-200 font-semibold">
                           {userData.fullname}
                         </h4>
-                        <span className="dark:text-gray-300 text-md">
+                        <span className="text-gray-500 dark:text-gray-300 text-md">
                           @{userData.username}
                         </span>
                       </div>

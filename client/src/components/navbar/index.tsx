@@ -7,6 +7,7 @@ import { BiSolidMessageAltDots } from "react-icons/bi";
 import NotificationsMenu from "./NotificationsMenu";
 import { useAppSelector } from "../../redux/hooks";
 import NavbarMobile from "./navbar-mobile";
+import Theme from "./SelectTheme";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -62,25 +63,28 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-black dark:text-gray-200"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <div className="md:hidden flex items-center gap-6">
+          <Theme />
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-black dark:text-gray-200"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       {/* Mobile */}
       <NavbarMobile />

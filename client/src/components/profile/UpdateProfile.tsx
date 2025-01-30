@@ -185,18 +185,22 @@ function UpdateProfile() {
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div>
-                <label className="dark:text-gray-200">Bioqrafiya</label>
+                <label className="text-gray-600 dark:text-gray-200">
+                  Bioqrafiya
+                </label>
                 <input
                   type="text"
                   name="biography"
                   value={userData.biography || ""}
                   onChange={handleChangeInput}
                   placeholder="Bioqrafiya"
-                  className="w-full mt-1 h-10 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500"
+                  className="w-full mt-1 h-10 p-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500"
                 />
               </div>
               <div>
-                <label className="dark:text-gray-200">Doğum tarixi</label>
+                <label className="text-gray-600 dark:text-gray-200">
+                  Doğum tarixi
+                </label>
                 <input
                   name="birthday"
                   type="date"
@@ -204,7 +208,7 @@ function UpdateProfile() {
                     userData.birthday ? userData.birthday.split("T")[0] : ""
                   }
                   onChange={handleChangeInput}
-                  className="w-full mt-1 h-10 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500 dark:gray-400"
+                  className="w-full mt-1 h-10 p-3  bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none dark:bg-gray-600 dark:text-gray-300 dark:border-gray-500 dark:gray-400"
                 />
               </div>
 

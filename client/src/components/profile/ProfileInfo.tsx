@@ -16,7 +16,7 @@ const ProfileInfo = ({ userProfile }: { userProfile: UserType }) => {
         <img
           src={userProfile.avatar || "/noAvatar.png"}
           alt="avatar"
-          className={`w-24 h-24 sm:w-36 sm:h-36 lg:w-48 lg:h-48 md:w-40 md:h-40 rounded-full border-2 ${
+          className={`w-20 h-20 sm:w-36 sm:h-36 lg:w-48 lg:h-48 md:w-40 md:h-40 rounded-full border-2 ${
             userProfile.avatar && "border-sky-300"
           }`}
         />
@@ -35,7 +35,7 @@ const ProfileInfo = ({ userProfile }: { userProfile: UserType }) => {
             {user?.username === userProfile.username ? (
               <UpdateProfile />
             ) : (
-              <div className="flex gap-2">
+              <div className="flex  flex-col md:flex-row gap-2">
                 <button
                   onClick={() => navigate(`/messages/${userProfile.id}`)}
                   className="flex items-center gap-2 bg-sky-400 hover:bg-sky-500 duration-300 text-white h-10 px-5 rounded-md"
@@ -56,7 +56,7 @@ const ProfileInfo = ({ userProfile }: { userProfile: UserType }) => {
 
         <div className="flex lg:flex-row flex-col gap-10">
           {/* Info */}
-          <div className="flex gap-10">
+          <div className="flex gap-5 md:gap-10">
             <div>
               <p className="text-center font-bold md:text-xl text-sm text-gray-800 dark:text-gray-200">
                 {userProfile._count?.posts || 0}

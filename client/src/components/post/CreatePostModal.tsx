@@ -114,7 +114,7 @@ const CreatePostModal = () => {
             value={postContent}
             onChange={(e) => setPostContent(e.target.value)}
             placeholder="Post məzmunu..."
-            className="w-full h-32 p-3 dark:bg-gray-600 dark:text-gray-200 border border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+            className="w-full h-32 p-3 dark:bg-gray-600 dark:text-gray-200 border bg-gray-50 border-gray-300 dark:border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
           ></textarea>
 
           {/* Buttons */}

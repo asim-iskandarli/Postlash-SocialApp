@@ -12,14 +12,16 @@ const Theme = () => {
   };
 
   return (
-    <div className="pl-5 py-4" onClick={toggleDarkMode}>
+    <div className="p-1" onClick={toggleDarkMode}>
       {isDarkMode ? (
-        <p className="flex items-center gap-2">
-          <GoSun size={18} /> Light Mode
+        <p className="flex items-center gap-2 text-gray-200 cursor-pointer">
+          <GoSun size={18} />{" "}
+          <span className="md:block hidden">İşıq rejimi</span>
         </p>
       ) : (
-        <p className="flex items-center gap-2">
-          <IoMoonOutline size={18} /> Dark Mode
+        <p className="flex items-center gap-2 cursor-pointer">
+          <IoMoonOutline size={18} />
+          <span className="md:block hidden">Qaranlıq rejim</span>
         </p>
       )}
     </div>
