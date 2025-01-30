@@ -60,7 +60,7 @@ const NotificationsPage = () => {
       <Helmet>
         <title>{import.meta.env.VITE_APP_NAME} | Bildirişlər</title>
       </Helmet>
-      <div className="right-0 w-full max-h-[50rem] mx-2 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg dark:shadow-gray-800">
+      <div className="right-0 w-full max-h-[45rem] mx-2 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg dark:shadow-gray-800">
         <div className="flex flex-col">
           {notifications.length > 0 ? (
             <div className="p-2">

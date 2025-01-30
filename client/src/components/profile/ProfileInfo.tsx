@@ -11,12 +11,12 @@ const ProfileInfo = ({ userProfile }: { userProfile: UserType }) => {
   const navigate = useNavigate();
 
   return (
-    <section className="h-48 w-full p-4 rounded-lg mb-4 flex md:gap-12 gap-6">
-      <div className="flex-shrink-0 ">
+    <section className="w-full p-4 rounded-lg mb-4 flex md:gap-12 gap-6">
+      <div className="flex-shrink-0">
         <img
           src={userProfile.avatar || "/noAvatar.png"}
           alt="avatar"
-          className={`w-20 h-20 sm:w-36 sm:h-36 lg:w-48 lg:h-48 md:w-40 md:h-40 rounded-full border-2 ${
+          className={`w-20 h-20 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-2 ${
             userProfile.avatar && "border-sky-300"
           }`}
         />

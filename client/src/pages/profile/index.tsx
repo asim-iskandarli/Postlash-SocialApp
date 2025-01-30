@@ -84,7 +84,7 @@ const ProfilePage = () => {
             ))
           ) : (
             <div className="mt-10">
-              <h2 className="text-center text-2xl font-semibold text-gray-400">
+              <h2 className="text-center text-xl font-semibold text-gray-400">
                 Hələ heçbir paylaşım yoxdur.
               </h2>
             </div>
