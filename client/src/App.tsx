@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/navbar";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { useEffect } from "react";

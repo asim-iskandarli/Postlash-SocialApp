@@ -6,7 +6,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { createCommentToPost, getComments } from "../../api";
 import { CommentType, PostType } from "../../types";
 import LoadSpinner from "../loaders/LoadSpinner";
-import dayjs from "dayjs";
+// import dayjs from "dayjs";
 import { useAppSelector } from "../../redux/hooks";
 
 const CommentButton = ({ post }: { post: PostType }) => {
