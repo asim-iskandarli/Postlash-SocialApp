@@ -56,20 +56,34 @@ const Navbar = () => {
         </div>
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-4 items-center">
-          <Link
-            to={"/"}
-            className="text-gray-500  hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-500 w-9 h-9 flex justify-center items-center rounded-full duration-200 cursor-pointer select-none"
-          >
-            <GoHomeFill size={22} />
-          </Link>
-          <Link
-            to="/messages"
-            className="text-gray-500  hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-500 w-9 h-9 flex justify-center items-center rounded-full duration-200 cursor-pointer select-none"
-          >
-            <BiSolidMessageAltDots size={22} />
-          </Link>
-          <NotificationsMenu />
-          <ProfileMenu />
+          {user ? (
+            <>
+              <Link
+                to={"/"}
+                className="text-gray-500  hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-500 w-9 h-9 flex justify-center items-center rounded-full duration-200 cursor-pointer select-none"
+              >
+                <GoHomeFill size={22} />
+              </Link>
+              <Link
+                to="/messages"
+                className="text-gray-500  hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-500 w-9 h-9 flex justify-center items-center rounded-full duration-200 cursor-pointer select-none"
+              >
+                <BiSolidMessageAltDots size={22} />
+              </Link>
+              <NotificationsMenu />
+              <ProfileMenu />
+            </>
+          ) : (
+            <>
+              <Theme />
+              <Link
+                to="/signin"
+                className="bg-sky-400 hover:bg-sky-500 duration-300 text-white h-9 px-6 rounded-md flex items-center justify-center"
+              >
+                Daxil ol
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -97,10 +111,10 @@ const Navbar = () => {
         </div>
       </div>
       {/* Mobile */}
-      <Tabbar />
+      {user && <Tabbar />}
       {/* Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden  p-4 space-y-2">
+        <div className="md:hidden  p-4 flex flex-col gap-2">
           <Link
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             to="/"
@@ -108,47 +122,59 @@ const Navbar = () => {
           >
             Ana səhifə
           </Link>
-          <Link
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            to="/messages"
-            className="block text-black dark:text-gray-200 hover:text-gray-400"
-          >
-            Mesajlar
-          </Link>
-          <Link
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            to="/bookmarks"
-            className="block text-black dark:text-gray-200 hover:text-gray-400"
-          >
-            Yadda saxlanılanlar
-          </Link>
-          {/* User Profile */}
-          <div className="flex items-center justify-between mt-4">
+          {user ? (
+            <>
+              <Link
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                to="/messages"
+                className="block text-black dark:text-gray-200 hover:text-gray-400"
+              >
+                Mesajlar
+              </Link>
+              <Link
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                to="/bookmarks"
+                className="block text-black dark:text-gray-200 hover:text-gray-400"
+              >
+                Yadda saxlanılanlar
+              </Link>
+              {/* User Profile */}
+              <div className="flex items-center justify-between mt-4">
+                <Link
+                  to={`/profile/${user?.username}`}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="flex items-center justify-between space-x-2"
+                >
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={user?.avatar || "/noAvatar.png"}
+                      alt="avatar"
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <span className="text-black dark:text-gray-200">
+                      {user?.username}
+                    </span>
+                  </div>
+                </Link>
+                <button
+                  className="bg-gray-100 dark:bg-gray-700 py-2 px-3 rounded-md"
+                  onClick={handleLogout}
+                >
+                  <div className="flex text-gray-600 items-center gap-2  dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+                    <IoExitOutline size={18} />
+                  </div>
+                </button>
+              </div>
+            </>
+          ) : (
             <Link
-              to={`/profile/${user?.username}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center justify-between space-x-2"
+              className="bg-sky-400 py-1 px-4 text-center text-white rounded-md"
+              to="/signin"
             >
-              <div className="flex items-center gap-2">
-                <img
-                  src={user?.avatar || "/noAvatar.png"}
-                  alt="avatar"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <span className="text-black dark:text-gray-200">
-                  {user?.username}
-                </span>
-              </div>
+              Daxil ol
             </Link>
-            <button
-              className="bg-gray-100 dark:bg-gray-700 py-2 px-3 rounded-md"
-              onClick={handleLogout}
-            >
-              <div className="flex text-gray-600 items-center gap-2  dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
-                <IoExitOutline size={18} />
-              </div>
-            </button>
-          </div>
+          )}
         </div>
       )}
     </nav>

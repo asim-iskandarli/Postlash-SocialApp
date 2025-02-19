@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Post from "../../components/post/Post";
 import ProfileInfo from "../../components/profile/ProfileInfo";
 import { useMutation } from "@tanstack/react-query";
@@ -16,6 +16,7 @@ const ProfilePage = () => {
   const { users } = useAppSelector((state) => state.user);
   const { username } = useParams();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [userProfile, setUserProfile] = useState<any>({
     id: "",
@@ -38,24 +39,26 @@ const ProfilePage = () => {
   });
 
   useEffect(() => {
-    if (user) {
-      if (username) {
-        if (!users.find((p: UserType) => p.username === username)) {
-          getUserMutation.mutate(username);
-        } else {
-          setUserProfile(users.find((p: UserType) => p.username === username));
-        }
+    if (username) {
+      if (!users.find((p: UserType) => p.username === username)) {
+        getUserMutation.mutate(username);
       } else {
-        if (!users.find((p: UserType) => p.username === user.username)) {
+        setUserProfile(users.find((p: UserType) => p.username === username));
+      }
+    } else {
+      if (user) {
+        if (!users.find((p: UserType) => p.username === user?.username)) {
           getUserMutation.mutate(user.username);
         } else {
           setUserProfile(
-            users.find((p: UserType) => p.username === user.username)
+            users.find((p: UserType) => p.username === user?.username)
           );
         }
+      } else {
+        navigate("/signin");
       }
     }
-  }, [dispatch, users, username, user]);
+  }, [dispatch, users, username]);
 
   return (
     <div className="flex flex-col pt-14 md:pt-20 md:w-5/6 w-full lg:w-4/6 m-auto min-h-screen">

@@ -11,15 +11,15 @@ import StoriesPage from "./pages/stories";
 import SearchPage from "./pages/search";
 
 const routes = [
-  { path: "/", element: <HomePage />, isProtected: true },
+  { path: "/", element: <HomePage />, isProtected: false },
   { path: "/signin", element: <SigninPage />, isProtected: false },
   { path: "/signup", element: <SignupPage />, isProtected: false },
-  { path: "/profile", element: <ProfilePage />, isProtected: true },
-  { path: "/profile/:username", element: <ProfilePage />, isProtected: true },
+  { path: "/profile", element: <ProfilePage />, isProtected: false },
+  { path: "/profile/:username", element: <ProfilePage />, isProtected: false },
   { path: "/stories/:storyId", element: <StoriesPage />, isProtected: true },
   { path: "/settings", element: <SettingsPage />, isProtected: true },
   { path: "/messages", element: <MessagesPage />, isProtected: true },
-  { path: "/search", element: <SearchPage />, isProtected: true },
+  { path: "/search", element: <SearchPage />, isProtected: false },
   { path: "/bookmarks", element: <BookmarkPage />, isProtected: true },
   { path: "/notifications", element: <NotificationsPage />, isProtected: true },
   {

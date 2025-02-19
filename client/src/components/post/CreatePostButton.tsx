@@ -1,13 +1,18 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setIsOpenCreate } from "../../redux/post/postSlice";
 
 function CreatePostButton() {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleOpen = () => {
-    dispatch(setIsOpenCreate(true));
+    if (user) {
+      dispatch(setIsOpenCreate(true));
+    } else {
+      navigate("/signin");
+    }
   };
 
   return (

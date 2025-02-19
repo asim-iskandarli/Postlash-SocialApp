@@ -159,7 +159,7 @@ const CommentButton = ({ post }: { post: PostType }) => {
               <h6 className="text-gray-500 dark:text-gray-200">Şərhlər</h6>
               <div className="max-h-72 overflow-y-auto">
                 {comments.length > 0 ? (
-                  comments.map((comment: any) => (
+                  comments.map((comment: CommentType) => (
                     <div key={comment.id} className="flex gap-2 mt-2">
                       <Link
                         to={`/profile/${comment.user?.username}`}
@@ -182,7 +182,7 @@ const CommentButton = ({ post }: { post: PostType }) => {
                           {comment.content}
                         </p>
                         <span className="text-xs text-gray-500 dark:text-gray-400">
-                          {dayjs(comment.createdAt).fromNow()}
+                          {/* {dayjs(comment?.createdAt).fromNow()} */}
                         </span>
                       </div>
                       {/* <button className="text-gray-200">Cavabla</button> */}

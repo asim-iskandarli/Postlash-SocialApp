@@ -5,6 +5,7 @@ import { userFollow, userUnfollow } from "../../redux/user/userSlice";
 import { useEffect, useState } from "react";
 import { follow, unfollow } from "../../redux/auth/authSlice";
 import { FollowType } from "../../types";
+import { useNavigate } from "react-router-dom";
 
 const fetchFollow = async (userId: string) => {
   await api.post(`/user/${userId}/follow`);
@@ -19,6 +20,8 @@ const FollowButton = ({
 }) => {
   const { user } = useAppSelector((state) => state.auth);
   const [isFollowed, setIsFollowed] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (
@@ -50,6 +53,8 @@ const FollowButton = ({
         dispatch(follow(userId));
         dispatch(userFollow({ userId, currentId: user?.id }));
       }
+    } else {
+      navigate("/signin");
     }
   };
 

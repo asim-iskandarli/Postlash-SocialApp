@@ -24,7 +24,7 @@ const Sidebar = () => {
                 {user?.fullname || "User"}
               </h3>
               <p className="text-sm text-gray-400">
-                @{user?.username || "@user"}
+                @{user?.username || "user"}
               </p>
             </div>
           </div>

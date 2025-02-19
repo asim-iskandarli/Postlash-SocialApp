@@ -20,6 +20,6 @@ router.delete("/:id", auth, deletePost);
 router.post("/:postId/like", auth, likePost);
 router.post("/:postId/bookmark", auth, toggleBookmark);
 router.post("/:postId/comments", auth, createCommentToPost);
-router.get("/:postId/comments", auth, getComments);
+router.get("/:postId/comments", getComments);
 
 export default router;

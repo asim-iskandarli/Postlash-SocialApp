@@ -3,15 +3,18 @@ import { IoCamera } from "react-icons/io5";
 import { useMutation } from "@tanstack/react-query";
 import { createStory } from "../../../api";
 import { addStory } from "../../../redux/stories/storiesSlice";
-import { useAppDispatch } from "../../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function CreateStoryModal() {
+  const { user } = useAppSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const modalRef = useRef<HTMLInputElement | null>(null);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const createStoryMutation = useMutation({
     mutationKey: ["story/create"],
@@ -58,6 +61,11 @@ function CreateStoryModal() {
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (!user) {
+      navigate("/signin");
+      return;
+    }
+
     handleOpen();
     const file = e.target.files?.[0];
     if (file && file.type.startsWith("image/")) {

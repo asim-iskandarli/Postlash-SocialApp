@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import Navbar from "./components/navbar";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { useEffect } from "react";
@@ -22,6 +22,8 @@ function App() {
   const { isDarkMode } = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
   const socket = useSocket();
+  const { pathname } = useLocation();
+  const hideNavbar = ["/signin", "/signup"].includes(pathname);
 
   const { data, isSuccess, isError } = useQuery({
     queryKey: ["refreshuser"],
@@ -74,7 +76,7 @@ function App() {
 
   return (
     <>
-      {user && <Navbar />}
+      {!hideNavbar && <Navbar />}
       {isOpenCreate && <CreatePostModal />}
       <ToastContainer
         position="bottom-center"
